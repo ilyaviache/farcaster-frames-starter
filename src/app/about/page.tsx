@@ -21,6 +21,7 @@ async function getStars(): Promise<number> {
 }
 
 async function getTestData(): Promise<TestData[]> {
+  // Example of fetching data from Supabase
   const cookiesStore = cookies();
   const supabase = createServerClient(cookiesStore);
   const { data, error } = await supabase.from('test_table').select('id, created_at');
