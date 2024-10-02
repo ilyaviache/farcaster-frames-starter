@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  cometa-frame:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'  # Next.js
+      - '3010:3010'  # Frames.js
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm dev
